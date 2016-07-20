@@ -10,7 +10,10 @@ id -u ubuntu &>/dev/null || useradd --create-home --shell /bin/bash --user-group
 echo "ubuntu:$PASS" | chpasswd
 sudo -u ubuntu -i bash -c "mkdir -p /home/ubuntu/.config/pcmanfm/LXDE/ \
     && cp /usr/share/doro-lxde-wallpapers/desktop-items-0.conf /home/ubuntu/.config/pcmanfm/LXDE/"
-
+cd /home/ubuntu/Desktop/
+mkdir Data 
+wget -P /home/ubuntu/Desktop/Data http://213.251.36.49/test.TIF
+chmod -R 777 /home/ubuntu/Desktop/Data
 cd /web && ./run.py > /var/log/web.log 2>&1 &
 nginx -c /etc/nginx/nginx.conf
 exec /usr/bin/supervisord -n
