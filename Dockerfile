@@ -33,7 +33,6 @@ ADD startup.sh /
 ADD supervisord.conf /etc/supervisor/conf.d/
 ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 RUN apt-get update && apt-get install wget
-RUN mkdir /home/ubuntu/Desktop/Data && wget -P /home/ubuntu/Desktop/Data http://213.251.36.49/test.TIF
 EXPOSE 6080
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
